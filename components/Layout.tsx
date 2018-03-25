@@ -1,7 +1,18 @@
-const Layout: React.SFC = ({ children }) => (
+import Head from 'next/head'
+
+export interface Props {
+  title: string;
+}
+
+const Layout: React.SFC<Props> = ({ children, title }) => (
   <div>
-    <h1>Heading</h1>
-    {children}
+    <Head>
+      <title>{title}</title>
+    </Head>
+
+    <main>
+      {children}
+    </main>
   </div>
 )
 

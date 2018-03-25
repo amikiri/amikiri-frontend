@@ -4,4 +4,4 @@ const Page = () => {
     return <p>Hello world</p>;
 };
 
-export default withLayout()(Page);
+export default withLayout({ title: 'Index page' })(Page);
