@@ -1,13 +1,13 @@
 import { ComponentClass, SFC } from 'react';
 
-import Layout, { Props } from '../components/Layout';
+import SiteLayout, { Props } from '../components/Layout';
 
 export const withLayout = (props?: Props) => {
     return (WrappedComponent: ComponentClass | SFC) => {
         return () => (
-            <Layout {...props}>
+            <SiteLayout {...props}>
                 <WrappedComponent />
-            </Layout>
+            </SiteLayout>
         );
     };
 }
