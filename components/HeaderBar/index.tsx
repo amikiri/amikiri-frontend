@@ -1,6 +1,8 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Icon, Dropdown, Avatar } from 'antd';
 import Link from 'next/link';
 const { Header } = Layout;
+
+import Profile from './Profile';
 
 const HeaderBar: React.SFC = () => (
     <Header className="header">
@@ -13,21 +15,30 @@ const HeaderBar: React.SFC = () => (
         >
             <Menu.Item key="1">
                 <Link href='/'>
-                    <a>Home</a>
+                    <a><Icon type="home" />Home</a>
                 </Link>
             </Menu.Item>
             <Menu.Item key="2">
                 <Link href='/support'>
-                    <a>Support</a>
+                    <a><Icon type="solution" />Support</a>
                 </Link>
             </Menu.Item>
             <Menu.Item key="3">
                 <Link href='/contact'>
-                    <a>Contact</a>
+                    <a><Icon type="customer-service" />Contact</a>
                 </Link>
             </Menu.Item>
+
+            <div style={{ float: "right" }}>
+                <Dropdown overlay={<Profile />} trigger={['click']}>
+                    <span>
+                        <Avatar size="small" />
+                        <span>John Smith</span>
+                    </span>
+                </Dropdown>
+            </div>
         </Menu>
-    </Header>
+    </Header >
 );
 
 export default HeaderBar;
